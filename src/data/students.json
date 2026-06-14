@@ -1,0 +1,22 @@
+[
+  { "id": "STU-001", "name": "Aarav Sharma", "country": "India", "experience": 1, "skills": ["React", "Node.js"] },
+  { "id": "STU-002", "name": "Mia Johnson", "country": "USA", "experience": 4, "skills": ["Angular", "Java"] },
+  { "id": "STU-003", "name": "Lukas Weber", "country": "Germany", "experience": 6, "skills": ["Python", "Node.js"] },
+  { "id": "STU-004", "name": "Sakura Tanaka", "country": "Japan", "experience": 2, "skills": ["React", "Python"] },
+  { "id": "STU-005", "name": "Noah Brown", "country": "Canada", "experience": 3, "skills": ["Java", "Angular"] },
+  { "id": "STU-006", "name": "Ananya Rao", "country": "India", "experience": 5, "skills": ["React", "Java"] },
+  { "id": "STU-007", "name": "Emily Davis", "country": "USA", "experience": 0, "skills": ["Python"] },
+  { "id": "STU-008", "name": "Hiroshi Sato", "country": "Japan", "experience": 7, "skills": ["Node.js", "Java"] },
+  { "id": "STU-009", "name": "Clara Fischer", "country": "Germany", "experience": 2, "skills": ["Angular", "React"] },
+  { "id": "STU-010", "name": "Ethan Wilson", "country": "Canada", "experience": 4, "skills": ["Python", "React"] },
+  { "id": "STU-011", "name": "Kabir Mehta", "country": "India", "experience": 8, "skills": ["Node.js", "Python"] },
+  { "id": "STU-012", "name": "Olivia Miller", "country": "USA", "experience": 1, "skills": ["React"] },
+  { "id": "STU-013", "name": "Finn Becker", "country": "Germany", "experience": 5, "skills": ["Java", "Node.js"] },
+  { "id": "STU-014", "name": "Yui Nakamura", "country": "Japan", "experience": 3, "skills": ["Angular", "Python"] },
+  { "id": "STU-015", "name": "Liam Martin", "country": "Canada", "experience": 6, "skills": ["React", "Java"] },
+  { "id": "STU-016", "name": "Isha Nair", "country": "India", "experience": 2, "skills": ["Angular", "Node.js"] },
+  { "id": "STU-017", "name": "Sophia Garcia", "country": "USA", "experience": 9, "skills": ["Java", "Python"] },
+  { "id": "STU-018", "name": "Mila Hoffmann", "country": "Germany", "experience": 0, "skills": ["React", "Angular"] },
+  { "id": "STU-019", "name": "Ren Ito", "country": "Japan", "experience": 4, "skills": ["Node.js", "React"] },
+  { "id": "STU-020", "name": "Ava Thompson", "country": "Canada", "experience": 1, "skills": ["Python", "Angular"] }
+]
