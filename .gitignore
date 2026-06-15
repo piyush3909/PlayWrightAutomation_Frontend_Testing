@@ -40,3 +40,9 @@ yarn-debug.log*
 .cache/
 temp/
 tmp/
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
