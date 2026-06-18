@@ -23,6 +23,7 @@ export default function Dashboard() {
   // Dashboard state owns the dataset and all table controls.
   const [students, setStudents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [filters, setFilters] = useState(emptyFilters);
   const [sort, setSort] = useState({ key: 'name', direction: 'asc' });
   const [page, setPage] = useState(1);
@@ -31,23 +32,37 @@ export default function Dashboard() {
   const [editingStudent, setEditingStudent] = useState(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
 
-  useEffect(() => {
-    // Simulates a short loading state and then hydrates data from localStorage or JSON.
-    const timeoutId = window.setTimeout(() => {
-      const storedStudents = localStorage.getItem(STUDENTS_KEY);
-      setStudents(storedStudents ? JSON.parse(storedStudents) : initialStudents);
-      setIsLoading(false);
-    }, 350);
+  const loadStudents = () => {
+    setIsLoading(true);
+    setError(null);
+    fetch('/api/students')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Failed to fetch students from server');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const storedStudents = localStorage.getItem(STUDENTS_KEY);
+        setStudents(storedStudents ? JSON.parse(storedStudents) : data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setIsLoading(false);
+      });
+  };
 
-    return () => window.clearTimeout(timeoutId);
+  useEffect(() => {
+    loadStudents();
   }, []);
 
   useEffect(() => {
     // Any student change is saved locally because this POC has no backend.
-    if (!isLoading) {
+    if (!isLoading && !error) {
       localStorage.setItem(STUDENTS_KEY, JSON.stringify(students));
     }
-  }, [students, isLoading]);
+  }, [students, isLoading, error]);
 
   const filteredStudents = useMemo(() => {
     // Search, skill, country, and experience filters are applied together.
@@ -157,6 +172,24 @@ export default function Dashboard() {
         <p className="rounded-md border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-slate-700 shadow-sm">
           Loading students...
         </p>
+      </main>
+    );
+  }
+
+  if (error) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-slate-100">
+        <div className="rounded-md border border-red-200 bg-white px-6 py-5 text-center shadow-sm max-w-md" role="alert">
+          <p className="text-sm font-semibold text-red-600 mb-2">Error Loading Data</p>
+          <p className="text-sm text-slate-700 mb-4">{error}</p>
+          <button
+            type="button"
+            onClick={loadStudents}
+            className="rounded-md bg-teal-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-800 focus:outline-none"
+          >
+            Retry
+          </button>
+        </div>
       </main>
     );
   }

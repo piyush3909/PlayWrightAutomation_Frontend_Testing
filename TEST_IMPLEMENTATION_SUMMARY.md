@@ -10,8 +10,8 @@ A comprehensive Playwright test suite with **140+ test cases** has been implemen
 The test suite is organized into **25 test describe blocks** covering all major feature areas:
 
 ### 1. **Authentication (7 tests)**
-- Valid admin login
-- Valid recruiter login  
+- Valid admin login (done)
+- Valid recruiter login 
 - Invalid credentials handling
 - Email validation
 - Password validation
